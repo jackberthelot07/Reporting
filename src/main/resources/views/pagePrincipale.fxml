@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.ensak.controllers.PagePrincipaleController"
+            style="-fx-background-color:#DDD"
+            prefHeight="760" prefWidth="1200">
+    <top>
+        <BorderPane style="-fx-background-color:#073763"
+                    prefHeight="50" prefWidth="1200">
+            <left>
+                <HBox spacing="10">
+                    <padding>
+                        <Insets topRightBottomLeft="10"/>
+                    </padding>
+                    <ImageView>
+                        <Image url="@/images/statistics.png"
+                               requestedWidth="30"
+                               requestedHeight="30"/>
+                    </ImageView>
+                    <Label text="Statistiques"
+                           textFill="orange">
+                        <padding>
+                            <Insets top="5"/>
+                        </padding>
+                        <font>
+                            <Font name="Century Schoolbook bold" size="18"/>
+                        </font>
+                    </Label>
+                </HBox>
+            </left>
+            <right>
+                <HBox spacing="10">
+                    <padding>
+                        <Insets topRightBottomLeft="10"/>
+                    </padding>
+                    <Button fx:id="goEmployes" alignment="BASELINE_LEFT"
+                            onAction="#onEmployes"
+                            prefWidth="260" style="-fx-background-color:#073763"
+                            text="Evaluation des Employés" textFill="white" wrapText="true">
+                        <font>
+                            <Font name="Bell MT bold" size="18" />
+                        </font>
+                        <graphic>
+                            <ImageView>
+                                <Image requestedHeight="30"
+                                       requestedWidth="30"
+                                       url="@/images/employes.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="goProcedures" alignment="BASELINE_LEFT"
+                            onAction="#onProcedures"
+                            style="-fx-background-color:#073763"
+                            text="Evaluation des procédures" textFill="white">
+                        <font>
+                            <Font name="Bell MT bold" size="18" />
+                        </font>
+                        <graphic>
+                            <ImageView>
+                                <Image requestedHeight="30"
+                                       requestedWidth="30"
+                                       url="@/images/procedures.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </HBox>
+            </right>
+        </BorderPane>
+    </top>
+
+    <center>
+        <BorderPane>
+            <top>
+                <VBox spacing="20">
+                    <HBox spacing="10">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                        <ComboBox fx:id="criteres"
+                                  promptText="Sélectionner un critère"
+                                  prefWidth="200"/>
+                        <ComboBox fx:id="optionsDivision"
+                                  promptText="Sélectionner une division"
+                                  prefWidth="200"/>
+                    </HBox>
+
+                    <TitledPane text="Visualisation">
+                        <BorderPane>
+                            <left>
+                                <TitledPane text="Représentation Numérique"
+                                            prefWidth="550">
+                                    <TableView fx:id="tableDonnees" >
+                                    </TableView>
+                                </TitledPane>
+                            </left>
+                            <right>
+                                <TitledPane fx:id="graphes"
+                                            text="Représentation Graphique"
+                                            prefWidth="550">
+                                </TitledPane>
+                            </right>
+                        </BorderPane>
+
+                    </TitledPane>
+                </VBox>
+
+            </top>
+        </BorderPane>
+    </center>
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT" spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="5" />
+            </padding>
+            <Button fx:id="download"
+                    prefWidth="30"
+                    prefHeight="30"
+                    onAction="#onDownload"
+                    style="-fx-background-color:#DDD">
+                <tooltip>
+                    <Tooltip text="Télécharger les données"/>
+                </tooltip>
+                <graphic>
+                    <ImageView>
+                        <Image requestedHeight="30"
+                               requestedWidth="30"
+                               url="@/images/download.png" />
+                    </ImageView>
+                </graphic>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.ensak.controllers.StatBoardController"
+            prefHeight="600" prefWidth="1200">
+    <top>
+        <VBox spacing="20">
+            <HBox spacing="10">
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+                <ComboBox fx:id="criteres"
+                          promptText="Sélectionner un critère"
+                          prefWidth="200"/>
+                <ComboBox fx:id="optionsDivision"
+                          promptText="Sélectionner une division"
+                          prefWidth="200"/>
+            </HBox>
+
+            <TitledPane text="Visualisation">
+                <BorderPane prefHeight="550">
+                    <left>
+                        <TitledPane text="Représentation Numérique"
+                                    prefWidth="550">
+                            <TableView fx:id="tableDonnees" >
+                            </TableView>
+                        </TitledPane>
+                    </left>
+                    <right>
+                        <TitledPane fx:id="graphes"
+                                    text="Représentation Graphique"
+                                    prefWidth="550">
+                        </TitledPane>
+                    </right>
+                </BorderPane>
+
+            </TitledPane>
+        </VBox>
+
+    </top>
+
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT" spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="5" />
+            </padding>
+            <Button fx:id="download"
+                    prefWidth="30"
+                    prefHeight="30"
+                    onAction="#onDownload"
+                    style="-fx-background-color:#DDD">
+                <tooltip>
+                    <Tooltip text="Télécharger les données"/>
+                </tooltip>
+                <graphic>
+                    <ImageView>
+                        <Image requestedHeight="30"
+                               requestedWidth="30"
+                               url="@/images/download.png" />
+                    </ImageView>
+                </graphic>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Button>
+        </HBox>
+    </bottom>
+
+</BorderPane>
